@@ -1,4 +1,3 @@
-# MSDS_400
 ## Explanation of the Program
 
 This program demonstrates how to use **Linear Programming (LP)** with the PuLP library to optimize maintenance scheduling for three power transformers. The objective is to minimize the total costs associated with maintenance and potential downtime due to failures. Below is an explanation of the program components:
