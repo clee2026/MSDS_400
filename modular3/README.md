@@ -1,46 +1,69 @@
-## Explanation of the Program
+# Maintenance Scheduling Problem
 
-This program demonstrates how to use **Linear Programming (LP)** with the PuLP library to optimize maintenance scheduling for three power transformers. The objective is to minimize the total costs associated with maintenance and potential downtime due to failures. Below is an explanation of the program components:
+This repository provides a Python script to solve a maintenance scheduling problem using linear programming. The goal is to minimize total costs while ensuring that transformers are maintained at least once during high-risk months.
 
-### Objective
-The goal is to minimize the total cost, which includes:
-- **Maintenance Costs**: Fixed costs for performing maintenance on each transformer.
-- **Expected Failure Costs**: Costs incurred if a transformer fails, scaled by the probability of failure in each month.
+## Overview
 
-### Decision Variables
-The binary decision variable \( x_{t,m} \) is defined for each transformer \( t \) and month \( m \). It indicates whether maintenance is performed (\( x_{t,m} = 1 \)) or not (\( x_{t,m} = 0 \)).
+The problem involves:
 
-### Constraints
-1. **Maintenance in High-Risk Months**: Each transformer must be maintained at least once during months where the probability of failure exceeds a threshold (in this example, 0.3).
-2. **Logical Assignment**: Maintenance can only be performed once per transformer in a given month.
+- Three transformers with specific failure probabilities for each month.
+- Maintenance costs and failure costs associated with each transformer.
+- Decision variables indicating whether maintenance is performed in a given month.
+- A constraint ensuring that each transformer is maintained at least once during high-risk months.
 
-### Hypothetical Failure Probabilities
-Failure probabilities are assigned for each transformer across 12 months to simulate realistic scenarios. These probabilities vary to reflect seasonal risks:
-- **Transformer_1**: Low risk overall, with slightly elevated probabilities in summer.
-- **Transformer_2**: Moderate risk with peaks in mid-year.
-- **Transformer_3**: High risk, especially in the summer months.
+## Code Structure
 
-### Output
-The program outputs the **optimal maintenance schedule**. For each transformer, it lists the months in which maintenance should be performed to minimize costs while ensuring reliability.
+The script:
 
-### Example Output
-If the program is run, the output might look like this:
+1. Defines the problem as a linear programming model using PuLP.
+2. Sets up decision variables for scheduling maintenance for each transformer.
+3. Defines the objective function to minimize total costs (maintenance + expected failure costs).
+4. Includes constraints to ensure compliance with the maintenance policy.
+5. Solves the problem and prints the optimal schedule.
 
-### How It Works
-1. **Define Costs**: Maintenance and failure costs are assigned for each transformer.
-2. **Set Probabilities**: Monthly failure probabilities are input for each transformer.
-3. **Define Objective**: The total cost (maintenance + expected failure costs) is minimized using LP.
-4. **Add Constraints**: Logical and practical constraints are added to ensure feasibility.
-5. **Solve the Problem**: The PuLP solver determines the optimal schedule.
-6. **Print Results**: The program outputs the maintenance schedule for each transformer.
+## Dependencies
 
-### Technologies Used
-- **Python**: Programming language used for implementation.
-- **PuLP**: Linear programming library for defining and solving optimization problems.
+To run the script, you need the following Python package:
 
-### Usage
-To use this program:
-1. Ensure Python and the PuLP library are installed.
-2. Copy the code into a `.py` file.
-3. Run the file to see the optimized maintenance schedule.
+- [PuLP](https://pypi.org/project/PuLP/): A Python library for linear programming.
 
+You can install PuLP using pip:
+
+```bash
+pip install pulp
+```
+
+## Usage
+
+To use the script, follow these steps:
+
+1. Clone the repository or copy the script to your local environment.
+2. Run the script using Python:
+
+```bash
+python pdm_lp.py
+```
+
+3. View the optimal maintenance schedule printed in the console.
+
+## Example Output
+
+The script outputs an optimal maintenance schedule. For example:
+
+```
+Optimal Maintenance Schedule:
+Transformer_1:
+  Maintenance scheduled in month 6
+Transformer_2:
+  Maintenance scheduled in month 7
+Transformer_3:
+  Maintenance scheduled in month 8
+```
+
+## License
+
+This project is licensed under the MIT License. See the `LICENSE` file for details.
+
+## Contributions
+
+Contributions are welcome! Feel free to submit issues or pull requests to improve the script or add new features.
