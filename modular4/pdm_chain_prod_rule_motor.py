@@ -1,6 +1,6 @@
 """Use Case:
-Chain Rule:** Used to compute the rate of change of engine efficiency over time, considering temperature and vibration effects.
-Product Rule:** Applied to compute how engine efficiency changes when multiple variables (like load and wear rate) interact."""
+Chain Rule: Used to compute the rate of change of engine efficiency over time, considering temperature and vibration effects.
+Product Rule: Applied to compute how engine efficiency changes when multiple variables (like load and wear rate) interact."""
 
 import numpy as np
 
